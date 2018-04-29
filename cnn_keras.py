@@ -17,7 +17,7 @@ def build_model(hight, weight, num_classes):
     model = Sequential()
 
     # Layer 1
-    model.add(Conv2D(16, (3,3), activation='relu', padding="same", input_shape = (hight, weight, 1)))
+    model.add(Conv2D(16, (3,3), activation='relu', padding="same", input_shape = (hight, weight, 3)))
     model.add(MaxPooling2D())
     
     model.add(Dropout(0.2))
@@ -60,13 +60,13 @@ def get_data(imageShape):
 
     normal = [line.strip() for line in normal_file.readlines()]
 
-    benign_img = [ cv.imread('{}.pgm'.format(no)) for no in benign ]
+    benign_img = [ cv.imread('dataset/{}.pgm'.format(no)) for no in benign ]
     benign_label = [ [0,1,0] for _ in xrange(len(benign)) ]
 
-    malignant_img = [ cv.imread('{}.pgm'.format(no)) for no in malignant ]
+    malignant_img = [ cv.imread('dataset/{}.pgm'.format(no)) for no in malignant ]
     malignant_label = [ [0,0,1] for _ in xrange(len(malignant)) ]
 
-    normal_img = [ cv.imread('{}.pgm'.format(no)) for no in normal ]
+    normal_img = [ cv.imread('dataset/{}.pgm'.format(no)) for no in normal ]
     normal_label = [ [1,0,0] for _ in xrange(len(normal)) ]
 
     x = []
