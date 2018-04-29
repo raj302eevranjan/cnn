@@ -32,7 +32,13 @@ def build_model(hight, weight, num_classes):
     model.add(MaxPooling2D())
     model.add(LeakyReLU(alpha=0.03))
 
-    model.add(Dropout(0.5))
+    model.add(Dropout(0.25))
+    # Layer 4
+    model.add(Conv2D(64, (3,3), padding="same"))
+    model.add(MaxPooling2D())
+    model.add(LeakyReLU(alpha=0.03))
+
+    model.add(Dropout(0.25))
     # Fully Connected Layer
     
     model.add(Flatten())
@@ -108,7 +114,7 @@ print('Done Building Model...')
 (x_train, y_train), (x_test, y_test) = get_data(imageShape)
 
 # Hyperparameters
-epochs = 500
+epochs = 50
 batch_size = 32
 
 model.compile(loss = keras.losses.categorical_crossentropy, optimizer = keras.optimizers.Adadelta(), metrics=['accuracy'])
