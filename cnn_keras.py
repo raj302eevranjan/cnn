@@ -102,7 +102,7 @@ start = datetime.now()
 
 checkpointer = ModelCheckpoint(filepath='weights.hdf5', verbose=1, save_best_only=True)
 
-imageShape = (70, 70)
+imageShape = (256, 256)
 model = build_model(imageShape[0], imageShape[1], 3)
 print('Done Building Model...')
 (x_train, y_train), (x_test, y_test) = get_data(imageShape)
