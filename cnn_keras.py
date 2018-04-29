@@ -3,7 +3,7 @@ from __future__ import print_function
 import cv2 as cv
 import numpy as np
 
-from skimage.transform import resize
+# from skimage.transform import resize
 from datetime import datetime
 import keras
 from keras.models import Sequential
@@ -75,8 +75,8 @@ def get_data(imageShape):
     x.extend(normal_img)
 
     # Reshaping image
-    # x = [ cv.resize(img, imageShape) for img in x ]
-    x =  [ resize(img, imageShape) for img in x ]
+    x = [ cv.resize(img, imageShape) for img in x ]
+    # x =  [ resize(img, imageShape) for img in x ]
 
     y = []
     y.extend(benign_label)
