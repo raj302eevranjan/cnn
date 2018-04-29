@@ -114,7 +114,7 @@ print('Done Building Model...')
 (x_train, y_train), (x_test, y_test) = get_data(imageShape)
 
 # Hyperparameters
-epochs = 50
+epochs = 100
 batch_size = 32
 
 model.compile(loss = keras.losses.categorical_crossentropy, optimizer = keras.optimizers.Adadelta(), metrics=['accuracy'])
